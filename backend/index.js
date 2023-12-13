@@ -12,12 +12,14 @@ app.get('/',(request,response)=>{
 
 
 
-mongoose.connect(mongoDBURL).then(()=> {
+mongoose
+  .connect(mongoDBURL)
+  .then(() => {
     console.log('App connected to database');
-    app.listen(PORT,() => {
-        console.log('App is listening to port: ${PORT}');
+    app.listen(PORT, () => {
+      console.log(`App is listening to port: ${PORT}`);
     });
-})
-.catch((error) => {
+  })
+  .catch((error) => {
     console.log(error);
-});
+  });
