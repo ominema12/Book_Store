@@ -72,6 +72,29 @@ app.get('/books/:id', async (request, response) => {
     }
 });
 
+ //Route to upadate a book
+ app.put('/books/:id',async(request,response)=> {
+    try{
+        if (
+            !request.body.title || 
+            !request.body.author || 
+            !request.body.publishYear
+        ) {
+            return response.status(400).send({
+                message: 'Send all required feilds: title,author, publishYear',
+            });
+        }
+
+        const {id}=request.params;
+        const result= await Book.findByIdAndUpdate(id,request.body);
+    
+        if(!request)
+    }
+    catch(error){
+
+    }
+});
+
 mongoose
     .connect(mongoDBURL)
     .then(() => {
