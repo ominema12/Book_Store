@@ -72,12 +72,12 @@ app.get('/books/:id', async (request, response) => {
     }
 });
 
- //Route to upadate a book
- app.put('/books/:id',async(request,response)=> {
-    try{
+//Route to upadate a book
+app.put('/books/:id', async (request, response) => {
+    try {
         if (
-            !request.body.title || 
-            !request.body.author || 
+            !request.body.title ||
+            !request.body.author ||
             !request.body.publishYear
         ) {
             return response.status(400).send({
@@ -85,13 +85,17 @@ app.get('/books/:id', async (request, response) => {
             });
         }
 
-        const {id}=request.params;
-        const result= await Book.findByIdAndUpdate(id,request.body);
-    
-        if(!request)
-    }
-    catch(error){
+        const { id } = request.params;
+        const result = await Book.findByIdAndUpdate(id, request.body);
 
+        if (!request) {
+            return response.status(404).json({ message: 'Book not found' });
+        }
+        return response.status(200).send({ message: 'Book updated successfully' });
+    }
+    catch (error) {
+        console.log(error.message)
+        response.status(500).send({ message: error.message });
     }
 });
 
