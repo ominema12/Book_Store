@@ -1,8 +1,8 @@
 import React from 'react'
 
-const EditBook; = () => {
+const EditBook = () => {
   return (
-    <div>EditBook;</div>
+    <div>EditBook</div>
   )
 }
 
