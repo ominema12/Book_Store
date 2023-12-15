@@ -9,8 +9,8 @@ import ShowBook from './pages/ShowBook';
 const App = () => {
   return (
     <Routes>
-      <Route path='' element={ } />
-      <Route path='' element={ } />
+      <Route path='/' element={ <Home />} />
+      <Route path='/books/create' element={ } />
       <Route path='' element={ } />
       <Route path='' element={ } />
       <Route path='' element={ } />
